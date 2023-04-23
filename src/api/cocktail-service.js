@@ -16,8 +16,24 @@ export const getTrendingCocktails = () => {
 
 export const getCocktailDetail = async (id) => {
   const { data } = await axios.get(`/lookup.php?i=${id}`);
-
-  return data.drinks[0];
+  const {
+    strDrink,
+    strDrinkThumb,
+    strAlcoholic,
+    strCategory,
+    strInstructions,
+    strGlass,
+    dateModified,
+  } = data.drinks[0];
+  return {
+    strDrink,
+    strDrinkThumb,
+    strAlcoholic,
+    strCategory,
+    strInstructions,
+    strGlass,
+    dateModified,
+  };
 };
 
 export const searchByName = async (query) => {

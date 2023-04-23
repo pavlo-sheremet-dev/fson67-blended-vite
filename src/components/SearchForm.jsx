@@ -7,6 +7,8 @@ export const SearchForm = () => {
     setSearchParams({ query: e.target.search.value.trim().toLowerCase() });
   };
 
+  const initialValue = searchParams.get("query") ?? "";
+
   return (
     <div className="p-4 space-x-6 bg-white rounded-xl shadow-md max-w-2xl mx-auto mb-10">
       <form className="w-full flex items-center gap-2" onSubmit={onSubmit}>
@@ -31,6 +33,7 @@ export const SearchForm = () => {
             type="text"
             name="search"
             placeholder="Enter name of cocktail..."
+            defaultValue={initialValue}
           />
         </div>
 

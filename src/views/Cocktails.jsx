@@ -10,6 +10,7 @@ export const Cocktails = () => {
   const [searchParams] = useSearchParams();
   const [cocktails, setCocktails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
   useEffect(() => {
     const query = searchParams.get("query");
@@ -19,6 +20,7 @@ export const Cocktails = () => {
       try {
         const response = await searchByName(query);
         setCocktails(response);
+        setIsFirstRender(false);
       } catch (err) {
         console.log(err.message);
       } finally {
@@ -36,7 +38,10 @@ export const Cocktails = () => {
         </h1>
         <SearchForm />
         {!!cocktails.length && <CocktailsList cocktails={cocktails} />}
-        {!cocktails.length && <p>По данному запиту немає коктелів</p>}
+        {isFirstRender && <p>Введіть пошуковий запит</p>}
+        {!isFirstRender && !cocktails.length && (
+          <p>По данному запиту немає коктелів</p>
+        )}
       </Section>
       {isLoading && <Loader />}
     </>
