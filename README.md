@@ -1,7 +1,3 @@
-# fson67-blended
+# React Blended
 
-# Tasks
-
-|    `Lesson`     |                                 `Practice Code`                                  |
-| :-------------: | :------------------------------------------------------------------------------: |
-| **Lesson - 03** | [Link](https://github.com/pavlo-sheremet-dev/fson67-blended-vite/tree/lesson-03) |
+## Lesson-05
